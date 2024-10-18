@@ -1,1 +1,128 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+body,
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #eeeeee 50%, #bfaa69 40%);
+    background-repeat: no-repeat;
+}
+/* ----------------------------------------------------------------------------------*/
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #404040;
+  display: none; /* Oculta por defecto */
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.sidebar-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+app-navbar-lateral {
+  width: 260px;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex; /* Muestra solo en dispositivos pequeños */
+  }
+  
+  .dashboard-container {
+    flex-direction: column; /* Ajusta el contenido en columna */
+  }
+
+  app-navbar-lateral {
+    width: 100%; /* Ocupa todo el ancho en dispositivos móviles */
+  }
+}
