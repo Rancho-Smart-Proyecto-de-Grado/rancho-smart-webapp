@@ -1,0 +1,30 @@
+<div class="dialog-container">
+    <h2>Crear Tratamiento</h2>
+    <form [formGroup]="tratamientoForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="titulo" />
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descripcion"/>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Resultados</mat-label>
+        <input matInput formControlName="resultados"/>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Recomendaciones</mat-label>
+        <input matInput formControlName="recomendaciones"/>
+      </mat-form-field>
+  
+      <div class="dialog-buttons">
+        <button mat-button color="primary" (click)="guardarTratamiento()">Guardar</button>
+        <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

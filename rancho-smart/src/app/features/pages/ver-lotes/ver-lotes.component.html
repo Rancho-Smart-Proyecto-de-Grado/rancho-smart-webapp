@@ -1,0 +1,38 @@
+<div class="dashboard-container">
+    <div class="navbar">
+        <button class="sidebar-toggle" (click)="toggleSidebar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <app-navbar-lateral [class.sidebar-hidden]="isSidebarHidden"></app-navbar-lateral>
+
+    <div class="dashboard-content">
+        <app-navbar-superior></app-navbar-superior>
+
+        <mat-card>
+            <mat-card-content>
+                <h1 class="title">Lote de finca: {{ nombreFinca }}</h1>
+
+                <div *ngIf="lotes && lotes.length > 0; else noLotes" class="lotes-list">
+                    <ng-container *ngFor="let lote of lotes">
+                        <app-info-card
+                        [title]="lote.proposito"
+                        [value]="'ID Lote: ' + lote.idLote"
+                        [imageUrl]="lote.foto || 'comun/lote.png'"
+                        [extraValue]="'Cantidad de Animales: ' + lote.cantidadAnimales"
+                        [showMenuButton]="true"
+                        (crearClicked)="abrirModalCrearAnimal(lote.idLote)"
+                        (verClicked)="verAnimales(lote.idLote)">
+                      </app-info-card>
+                      
+                    </ng-container>
+                </div>
+
+                <!-- Mensaje si no hay lotes -->
+                <ng-template #noLotes>
+                    <p>No hay lotes registrados para esta finca.</p>
+                </ng-template>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

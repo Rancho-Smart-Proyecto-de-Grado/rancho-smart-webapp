@@ -1,0 +1,16 @@
+.title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.fincas-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    padding: 16px;
+}
+

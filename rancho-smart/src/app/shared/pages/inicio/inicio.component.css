@@ -1,0 +1,180 @@
+.input-busqueda {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  display: block;
+}
+
+.contenedor-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+mat-card img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  padding: 10px;
+}
+
+.app-layout .contenedor {
+  flex-grow: 1;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  height: 100vh;
+  /*background-color: #f5f7fa; */
+}
+
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.titulos {
+  margin-bottom: 20px;
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.titleColor {
+  color: #bfaa69;
+  margin-left: 20px;
+}
+
+
+.area-principal {
+  flex-basis: 50%;
+}
+
+.area-principal h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.area-principal p {
+  font-size: 1rem;
+  color: #414040;
+  margin-bottom: 20px;
+  font-weight: 600;
+
+}
+
+.area-principal button {
+  background-color: #bfaa69;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 350px;
+  font-size: 14pt;
+}
+
+.area-principal button:hover {
+  background-color: #bfaa69;
+  margin-left: 20px;
+}
+
+.titleColor {
+  color: #bfaa69;
+}
+
+.area-visual {
+  flex-basis: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .app-layout app-navbar-lateral {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .app-layout .contenedor {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .Blocks a,
+  .contenedor-grafico {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .titulos {
+    flex-direction: column;
+    text-align: left;
+    margin-top: 40px;
+  }
+
+  .titleColor {
+    margin-left: 0;
+    margin-top: -20px;
+  }
+
+
+  .contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .area-principal{
+    margin-top: 50px;
+  }
+
+  .area-principal,
+  .area-visual,
+  .texto-secundario {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .area-principal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .area-visual {
+    order: 2;
+  }
+
+  .texto-secundario {
+    order: 3;
+  }
+
+
+}

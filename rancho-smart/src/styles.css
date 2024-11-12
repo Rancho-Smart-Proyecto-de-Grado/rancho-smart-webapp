@@ -126,3 +126,79 @@ app-navbar-lateral {
     width: 100%; /* Ocupa todo el ancho en dispositivos móviles */
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+/* ----------------------------------------------------------------------------------*/
+
+mat-card {
+  width: 100%;
+  max-width: 75vw;
+  padding: 20px;
+  margin: 0 auto;
+  /* Centra el mat-card */
+}
+
+.example-full-width {
+  width: 100%;
+  max-width: 45%;
+  height: 80px;
+  margin: 3px 10px -5px 10px;
+}
+
+.boton {
+  margin-top: -20px;
+  margin-left: 10px;
+
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.table-container table {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.table-container th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #5e6a75 !important;
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+
+.mat-table th.mat-header-cell {
+  background-color: #5e6a75 !important;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.table-container tr:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.table-container tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.filtro {
+  width: 100%;
+  max-width: 30%;
+  margin-bottom: 10px;
+}

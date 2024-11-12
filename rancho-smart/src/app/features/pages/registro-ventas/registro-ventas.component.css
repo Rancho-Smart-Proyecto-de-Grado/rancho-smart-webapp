@@ -1,0 +1,52 @@
+.title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+/* Botón estilizado */
+.btn-add-inventory {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    /* Color primario */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el contenedor del ícono */
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Texto del botón */
+.btn-text {
+    font-size: 16px;
+}
+
+/* Efecto hover para el botón */
+.btn-add-inventory:hover {
+    background-color: #303f9f;
+    color: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto hover para el contenedor del ícono */
+.icon-container:hover {
+    background-color: #e0e0e0;
+    color: #3f51b5;
+}

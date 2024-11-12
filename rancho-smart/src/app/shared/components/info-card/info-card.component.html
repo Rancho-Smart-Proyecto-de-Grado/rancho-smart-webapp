@@ -1,0 +1,21 @@
+<div class="info-card" (click)="onCardClick()">
+  <img [src]="imageUrl" alt="Icon" class="info-card-icon">
+
+  <div class="info-card-content">
+    <p class="info-card-title">{{ title }}</p>
+    <p class="info-card-value">{{ value }}</p>
+    <p class="info-card-extra" *ngIf="extraValue">{{ extraValue }}</p> <!-- Nuevo valor adicional -->
+  </div>
+
+  <!-- Botón de menú opcional -->
+  <button *ngIf="showMenuButton" mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()" style="border: none;">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <!-- Menú desplegable -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="crearClicked.emit()">Crear</button>
+    <button mat-menu-item (click)="verClicked.emit()">Ver</button>
+  </mat-menu>
+  
+</div>

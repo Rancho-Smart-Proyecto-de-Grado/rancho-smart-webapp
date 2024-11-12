@@ -1,0 +1,53 @@
+<div class="dialog-container">
+    <h2>Registrar Venta</h2>
+  
+    <!-- Contenedor del formulario con formGroup -->
+    <form [formGroup]="ventaForm">
+      <!-- Selección de Finca -->
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Seleccionar Finca</mat-label>
+        <mat-select (selectionChange)="onFincaChange($event.value)">
+          <mat-option *ngFor="let finca of fincas" [value]="finca.idFinca">
+            {{ finca.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Selección de Animal -->
+      <mat-form-field appearance="fill" class="example-full-width" *ngIf="animales.length > 0">
+        <mat-label>Seleccionar Animal</mat-label>
+        <mat-select formControlName="idAnimal">
+          <mat-option *ngFor="let animal of animales" [value]="animal.idAnimal">
+            {{ animal.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Descripción -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descripcion" />
+      </mat-form-field>
+  
+      <!-- Precio -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Precio</mat-label>
+        <input matInput type="number" formControlName="precio" />
+      </mat-form-field>
+  
+      <!-- Moneda -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Moneda</mat-label>
+        <mat-select formControlName="moneda">
+          <mat-option value="PESO_COLOMBIANO">Peso Colombiano</mat-option>
+          <mat-option value="DOLAR_ESTADOUNIDENSE">Dólar Estadounidense</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="dialog-buttons">
+        <button mat-button color="primary" (click)="guardarVenta()">Guardar</button>
+        <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

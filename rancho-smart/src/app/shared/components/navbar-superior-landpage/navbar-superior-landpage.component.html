@@ -1,0 +1,16 @@
+<header class="header">
+    <nav class="nav">
+        <a routerLink="/" class="logo">Bottom Line</a>
+        <div class="mobileMenu" (click)="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul [ngClass]="{'navList': true, 'active': isActive}">
+            <li><a routerLink="/" class="navLink">Início</a></li>
+            <li><a routerLink="/sobrenosotros" class="navLink">Sobre Nosotros</a></li>
+            <li><a routerLink="/venta" class="navLink">Venta de ganado</a></li>
+            <li><a routerLink="/login" class="navLink">Inicio sesión</a></li>
+        </ul>
+    </nav>
+</header>

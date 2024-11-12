@@ -1,0 +1,47 @@
+<div class="dialog-container">
+  <h2>Crear Producto</h2>
+  <form [formGroup]="productoForm">
+
+    <!-- Select para Fincas -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Finca</mat-label>
+      <mat-select formControlName="idFinca">
+        <mat-option *ngFor="let finca of fincas" [value]="finca.idFinca">
+          {{ finca.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion"/>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Precio</mat-label>
+      <input matInput type="number" formControlName="precio" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Cantidad</mat-label>
+      <input matInput type="number" formControlName="cantidad" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha de Registro</mat-label>
+      <input matInput type="date" formControlName="fechaRegistro" />
+    </mat-form-field>
+
+
+
+    <div class="dialog-buttons">
+      <button mat-button color="primary" (click)="crearProducto()">Crear</button>
+      <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</div>

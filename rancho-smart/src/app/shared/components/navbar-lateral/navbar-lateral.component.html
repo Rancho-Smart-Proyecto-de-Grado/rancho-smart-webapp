@@ -7,9 +7,20 @@
 <aside class="sidebar" [ngClass]="{'sidebar-hidden': isSidebarHidden}">
   <ul>
     <li>
-      <a routerLink="/" [ngClass]="{'active': isActive('/')}" (click)="closeSidebar()">
+      <a routerLink="/dashboard" [ngClass]="{'active': isActive('/')}" (click)="closeSidebar()">
         <mat-icon>dashboard</mat-icon>
         <p>Dashboard</p>
+      </a>
+    </li>
+
+    <li>
+      
+      <a routerLink="/fincas" [ngClass]="{'active': isActive('/fincas')}"
+      (click)="closeSidebar()">
+      <mat-icon>engineering</mat-icon>
+      <p>
+        Fincas
+      </p>
       </a>
     </li>
 
@@ -23,13 +34,12 @@
       <div class="sub-menu" [ngClass]="{'open': menuState['salud']}">
         <ul>
           <li>
-            <a routerLink="/historial-medico" [ngClass]="{'active': isActive('/historial-medico')}" (click)="closeSidebar()">Historial Médico</a>
+            <a routerLink="/historial-medico" [ngClass]="{'active': isActive('/historial-medico')}"
+              (click)="closeSidebar()">Historial Médico</a>
           </li>
           <li>
-            <a routerLink="/registro-vacunacion" [ngClass]="{'active': isActive('/registro-vacunacion')}" (click)="closeSidebar()">Registro de Vacunación</a>
-          </li>
-          <li>
-            <a routerLink="/reportes-salud" [ngClass]="{'active': isActive('/reportes-salud')}" (click)="closeSidebar()">Reportes de Salud</a>
+            <a routerLink="/reportes-salud" [ngClass]="{'active': isActive('/reportes-salud')}"
+              (click)="closeSidebar()">Reportes de Salud</a>
           </li>
         </ul>
       </div>
@@ -45,10 +55,12 @@
       <div class="sub-menu" [ngClass]="{'open': menuState['produccion']}">
         <ul>
           <li>
-            <a routerLink="/registro-produccion" [ngClass]="{'active': isActive('/registro-produccion')}" (click)="closeSidebar()">Registro de Producción</a>
+            <a routerLink="/registro-produccion" [ngClass]="{'active': isActive('/registro-produccion')}"
+              (click)="closeSidebar()">Registro de Producción</a>
           </li>
           <li>
-            <a routerLink="/reportes-produccion" [ngClass]="{'active': isActive('/reportes-produccion')}" (click)="closeSidebar()">Reportes de Producción</a>
+            <a routerLink="/reportes-produccion" [ngClass]="{'active': isActive('/reportes-produccion')}"
+              (click)="closeSidebar()">Reportes de Producción</a>
           </li>
         </ul>
       </div>
@@ -64,13 +76,12 @@
       <div class="sub-menu" [ngClass]="{'open': menuState['genealogia']}">
         <ul>
           <li>
-            <a routerLink="/registro-genealogia" [ngClass]="{'active': isActive('/registro-genealogia')}" (click)="closeSidebar()">Registro de Genealogía</a>
+            <a routerLink="/registro-genealogia" [ngClass]="{'active': isActive('/registro-genealogia')}"
+              (click)="closeSidebar()">Registro de Genealogía</a>
           </li>
           <li>
-            <a routerLink="/registro-apareamientos" [ngClass]="{'active': isActive('/registro-apareamientos')}" (click)="closeSidebar()">Registro de Apareamientos</a>
-          </li>
-          <li>
-            <a routerLink="/optimizacion-apareamientos" [ngClass]="{'active': isActive('/optimizacion-apareamientos')}" (click)="closeSidebar()">Optimización de Apareamientos</a>
+            <a routerLink="/optimizacion-apareamientos" [ngClass]="{'active': isActive('/optimizacion-apareamientos')}"
+              (click)="closeSidebar()">Optimización de Apareamientos</a>
           </li>
         </ul>
       </div>
@@ -86,10 +97,12 @@
       <div class="sub-menu" [ngClass]="{'open': menuState['ventas']}">
         <ul>
           <li>
-            <a routerLink="/registro-ventas" [ngClass]="{'active': isActive('/registro-ventas')}" (click)="closeSidebar()">Registro de Ventas</a>
+            <a routerLink="/registro-ventas" [ngClass]="{'active': isActive('/registro-ventas')}"
+              (click)="closeSidebar()">Registro de Ventas</a>
           </li>
           <li>
-            <a routerLink="/consulta-clientes" [ngClass]="{'active': isActive('/consulta-clientes')}" (click)="closeSidebar()">Consulta de Clientes</a>
+            <a routerLink="/consulta-clientes" [ngClass]="{'active': isActive('/consulta-clientes')}"
+              (click)="closeSidebar()">Consulta de Clientes</a>
           </li>
         </ul>
       </div>
@@ -105,13 +118,25 @@
       <div class="sub-menu" [ngClass]="{'open': menuState['inventario']}">
         <ul>
           <li>
-            <a routerLink="/gestion-inventario" [ngClass]="{'active': isActive('/gestion-inventario')}" (click)="closeSidebar()">Gestión de Inventario</a>
+            <a routerLink="/gestion-inventario" [ngClass]="{'active': isActive('/gestion-inventario')}"
+              (click)="closeSidebar()">Gestión de Inventario</a>
           </li>
           <li>
-            <a routerLink="/reportes-inventario" [ngClass]="{'active': isActive('/reportes-inventario')}" (click)="closeSidebar()">Reportes de Inventario</a>
+            <a routerLink="/reportes-inventario" [ngClass]="{'active': isActive('/reportes-inventario')}"
+              (click)="closeSidebar()">Reportes de Inventario</a>
           </li>
         </ul>
       </div>
     </li>
+
+
+    <!--cerrar sesión-->
+    <li>
+      <a routerLink="">
+        <mat-icon>logout</mat-icon>
+        <p>Cerrar Sesión</p>
+      </a>
+    </li>
+
   </ul>
 </aside>

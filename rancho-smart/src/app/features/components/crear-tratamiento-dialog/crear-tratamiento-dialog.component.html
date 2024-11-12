@@ -1,0 +1,62 @@
+<div class="dialog-container">
+  <h2>Crear Tratamiento</h2>
+  <form [formGroup]="tratamientoForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="titulo" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha de Inicio</mat-label>
+      <input matInput type="date" formControlName="fechaInicio" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha de Fin</mat-label>
+      <input matInput type="date" formControlName="fechaFin" />
+    </mat-form-field>
+
+    <h3>Medicamentos</h3>
+    <button mat-button color="primary" (click)="agregarMedicamento()">Añadir Medicamento</button>
+
+    <div *ngFor="let medicamento of listadoMedicamentos.controls; let i = index">
+      <div [formGroup]="asFormGroup(medicamento)">
+        <mat-form-field class="example-full-width">
+          <mat-label>Medicamento</mat-label>
+          <mat-select formControlName="idMedicamento">
+            <mat-option *ngFor="let med of medicamentos" [value]="med.idMedicamento">
+              {{ med.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Dosis Recomendada</mat-label>
+          <input matInput type="number" formControlName="dosisRecomendada" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Frecuencia</mat-label>
+          <input matInput formControlName="frecuencia" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Observaciones</mat-label>
+          <input matInput formControlName="observaciones" />
+        </mat-form-field>
+
+        <button mat-button color="warn" (click)="eliminarMedicamento(i)">Eliminar</button>
+      </div>
+    </div>
+
+    <div class="dialog-buttons">
+      <button mat-button color="primary" (click)="guardarTratamiento()">Guardar</button>
+      <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</div>

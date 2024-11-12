@@ -5,8 +5,29 @@
     </button>
   </div>
   <app-navbar-lateral [class.sidebar-hidden]="isSidebarHidden"></app-navbar-lateral>
+
   <div class="dashboard-content">
-    <p>Dashboard works!</p>
-    <!-- Aquí va el contenido dinámico del dashboard -->
+    <app-navbar-superior></app-navbar-superior>
+
+    <!-- Contenedor del listado de fincas con scroll vertical -->
+    <mat-card class="fincas-card">
+      <mat-card-title class="title">Listado de Fincas</mat-card-title>
+      <div class="fincas-list">
+        <div *ngIf="fincas.length > 0; else noFincas">
+          <ng-container *ngFor="let finca of fincas">
+            <app-info-card
+              [title]="finca.nombre"
+              imageUrl="comun/ganado.png"
+              style="cursor: pointer;"
+            ></app-info-card>
+          </ng-container>
+        </div>
+
+        <!-- Mensaje si no hay fincas -->
+        <ng-template #noFincas>
+          <p>No hay fincas registradas.</p>
+        </ng-template>
+      </div>
+    </mat-card>
   </div>
 </div>

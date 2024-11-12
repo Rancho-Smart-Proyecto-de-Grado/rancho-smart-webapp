@@ -7,14 +7,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-navbar-lateral',
   standalone: true,
-  imports: [MatIconModule, NgIf, NgClass, RouterLink],
+  imports: [
+    MatIconModule, 
+    NgClass, 
+    RouterLink],
   templateUrl: './navbar-lateral.component.html',
   styleUrl: './navbar-lateral.component.css'
 })
 export class NavbarLateralComponent {
   isSidebarHidden = false;
   activeRoute: string = '';
-  
+
   menuState: Record<string, boolean> = {
     salud: false,
     produccion: false,
@@ -48,25 +51,25 @@ export class NavbarLateralComponent {
   private updateMenuState(): void {
     // Abre automáticamente el submenú si la ruta coincide con una subopción.
     if (this.activeRoute.includes('/historial-medico') ||
-        this.activeRoute.includes('/registro-vacunacion') ||
-        this.activeRoute.includes('/reportes-salud')) {
+      this.activeRoute.includes('/registro-vacunacion') ||
+      this.activeRoute.includes('/reportes-salud')) {
       this.menuState['salud'] = true;
     }
     if (this.activeRoute.includes('/registro-produccion') ||
-        this.activeRoute.includes('/reportes-produccion')) {
+      this.activeRoute.includes('/reportes-produccion')) {
       this.menuState['produccion'] = true;
     }
     if (this.activeRoute.includes('/registro-genealogia') ||
-        this.activeRoute.includes('/registro-apareamientos') ||
-        this.activeRoute.includes('/optimizacion-apareamientos')) {
+      this.activeRoute.includes('/registro-apareamientos') ||
+      this.activeRoute.includes('/optimizacion-apareamientos')) {
       this.menuState['genealogia'] = true;
     }
     if (this.activeRoute.includes('/registro-ventas') ||
-        this.activeRoute.includes('/consulta-clientes')) {
+      this.activeRoute.includes('/consulta-clientes')) {
       this.menuState['ventas'] = true;
     }
     if (this.activeRoute.includes('/gestion-inventario') ||
-        this.activeRoute.includes('/reportes-inventario')) {
+      this.activeRoute.includes('/reportes-inventario')) {
       this.menuState['inventario'] = true;
     }
   }

@@ -1,0 +1,44 @@
+<mat-dialog-content>
+    <h2 class="title">Registrar Animal</h2>
+  
+    <form [formGroup]="animalForm" (ngSubmit)="crearAnimal()">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Ingrese el nombre ">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Género</mat-label>
+        <mat-select formControlName="genero">
+          <mat-option value="H">Hembra</mat-option>
+          <mat-option value="M">Macho</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Raza</mat-label>
+        <input matInput formControlName="raza" placeholder="Ingrese la raza del animal">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput formControlName="fechaNacimiento" type="date">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Etapa</mat-label>
+        <mat-select formControlName="etapa">
+          <mat-option value="CRIA">Cría</mat-option>
+          <mat-option value="ENGORDA">Engorda</mat-option>
+          <mat-option value="PRODUCCION">Producción</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-flat-button type="submit">Crear Animal</button>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  

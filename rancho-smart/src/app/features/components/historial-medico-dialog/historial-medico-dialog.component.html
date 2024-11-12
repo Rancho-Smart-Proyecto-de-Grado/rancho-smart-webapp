@@ -1,0 +1,97 @@
+<div class="dialog-container">
+    <h2>Historial Médico</h2>
+    <mat-accordion multi>
+        <!-- Descripción -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Descripción</mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>{{ historialMedico.descripcion }}</p>
+        </mat-expansion-panel>
+
+        <!-- Observaciones -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Observaciones</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li *ngFor="let observacion of historialMedico.observaciones">
+                    {{ observacion }}
+                </li>
+            </ul>
+        </mat-expansion-panel>
+
+        <!-- Vacunas -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Vacunas</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="historialMedico.vacunasHistorial.length; else noData">
+                <ul>
+                    <li *ngFor="let vacuna of historialMedico.vacunasHistorial">
+                        <strong>{{ vacuna.nombre }}</strong> - Dosis: {{ vacuna.cantidadDosis }} -
+                        Fecha de Administración: {{ vacuna.fechaAdministracion }} -
+                        Próxima Dosis: {{ vacuna.fechaProximaDosis }}
+                    </li>
+                </ul>
+            </div>
+            <ng-template #noData>
+                <p>No hay datos de vacunas.</p>
+            </ng-template>
+        </mat-expansion-panel>
+
+        <!-- Procedimientos Médicos -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Procedimientos Médicos</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="historialMedico.procedimientosMedicosHistorial.length; else noData">
+                <ul>
+                    <li *ngFor="let proc of historialMedico.procedimientosMedicosHistorial">
+                        <strong>{{ proc.titulo }}</strong> - Fecha: {{ proc.fecha }}<br />
+                        Resultados: {{ proc.resultados }}<br />
+                        Recomendaciones: {{ proc.recomendaciones }}
+                    </li>
+                </ul>
+            </div>
+        </mat-expansion-panel>
+
+        <!-- Consultas -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Consultas</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="historialMedico.consultasHistorial.length; else noData">
+                <ul>
+                    <li *ngFor="let consulta of historialMedico.consultasHistorial">
+                        <strong>Diagnóstico:</strong> {{ consulta.diagnostico }}<br />
+                        <strong>Fecha:</strong> {{ consulta.fechaConsulta }}<br />
+                        Comentarios: {{ consulta.comentarios }}
+                    </li>
+                </ul>
+            </div>
+        </mat-expansion-panel>
+
+        <!-- Tratamientos -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Tratamientos</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="historialMedico.tratamientos.length; else noData">
+                <ul>
+                    <li *ngFor="let tratamiento of historialMedico.tratamientos">
+                        <strong>{{ tratamiento.titulo }}</strong> - {{ tratamiento.descripcion }}<br />
+                        Fecha Inicio: {{ tratamiento.fechaInicio }} - Fecha Fin: {{ tratamiento.fechaFin }}
+                    </li>
+                </ul>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <!-- Botón para cerrar el modal -->
+    <button mat-button (click)="cerrarModal()">Cerrar</button>
+
+    <ng-template #noData>
+        <p>No hay datos disponibles.</p>
+    </ng-template>
+</div>

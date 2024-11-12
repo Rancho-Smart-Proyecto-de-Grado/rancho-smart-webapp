@@ -1,0 +1,18 @@
+<app-navbar-superior-landpage></app-navbar-superior-landpage>
+
+<!-- Input para el filtro -->
+<mat-form-field class="input-busqueda" style="padding-top: 50pt;">
+  <mat-label>Buscar por descripción</mat-label>
+  <input matInput [formControl]="busquedaControl" placeholder="Escribe aquí">
+</mat-form-field>
+
+<!-- Listado de cards -->
+<div class="contenedor-cards">
+  <mat-card *ngFor="let venta of ventasFiltradas" class="card">
+    <img mat-card-image [src]="venta.imagen" alt="Imagen del animal">
+    <mat-card-content>
+      <h3>{{ venta.precio | currency }}</h3>
+      <p>{{ venta.moneda }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

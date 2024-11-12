@@ -1,0 +1,61 @@
+<div class="dialog-container">
+    <h2>Crear Alimento</h2>
+    <form [formGroup]="alimentoForm">
+      <!-- Select para la finca -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Finca</mat-label>
+        <mat-select formControlName="idFinca" required>
+          <mat-option *ngFor="let finca of fincas" [value]="finca.idFinca">
+            {{ finca.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="alimentoForm.get('idFinca')?.invalid && alimentoForm.get('idFinca')?.touched">
+          Debes seleccionar una finca.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Nombre -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+      </mat-form-field>
+  
+      <!-- Tipo -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo</mat-label>
+        <input matInput formControlName="tipo" />
+      </mat-form-field>
+  
+      <!-- Composición Nutricional -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Composición Nutricional</mat-label>
+        <input matInput formControlName="composicionNutricional" />
+      </mat-form-field>
+  
+      <!-- Cantidad Disponible -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Cantidad Disponible</mat-label>
+        <input matInput type="number" formControlName="cantidadDisponible" />
+      </mat-form-field>
+  
+      <!-- Precio por Unidad -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Precio por Unidad</mat-label>
+        <input matInput type="number" formControlName="precioPorUnidad" />
+      </mat-form-field>
+  
+      <!-- Fecha de Caducidad -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Caducidad</mat-label>
+        <input matInput type="date" formControlName="fechaDeCaducidad" />
+      </mat-form-field>
+  
+ 
+      <!-- Botones -->
+      <div class="dialog-buttons">
+        <button mat-raised-button color="primary" (click)="crearAlimento()">Crear</button>
+        <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+    <div class="navbar">
+        <button class="sidebar-toggle" (click)="toggleSidebar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <app-navbar-lateral [class.sidebar-hidden]="isSidebarHidden"></app-navbar-lateral>
+
+    <div class="dashboard-content">
+        <app-navbar-superior></app-navbar-superior>
+
+        <mat-card>
+            <mat-card-content>
+                <h1 class="title">Fincas</h1>
+                <button mat-flat-button (click)="abrirModalFinca()">Registrar Finca</button>
+
+                <div *ngIf="fincas.length > 0; else noFincas" class="fincas-list">
+                    <ng-container *ngFor="let finca of fincas">
+                        <app-info-card [title]="finca.nombre" imageUrl="comun/ganado.png" style="cursor: pointer;"
+                            [showMenuButton]="true" (crearClicked)="crearLote(finca.idFinca)"
+                            (verClicked)="verLotes(finca.idFinca, finca.nombre)"></app-info-card>
+                    </ng-container>
+                </div>
+                <!-- Mensaje si no hay fincas -->
+                <ng-template #noFincas>
+                    <p>No hay fincas registradas.</p>
+                </ng-template>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="dialog-container">
+    <h2>Crear Vacuna</h2>
+    <form [formGroup]="vacunaForm">
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Tratamiento</mat-label>
+        <mat-select formControlName="idTratamiento">
+          <mat-option *ngFor="let tratamiento of tratamientos" [value]="tratamiento.idTratamiento">
+            {{ tratamiento.titulo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre de la Vacuna</mat-label>
+        <input matInput formControlName="nombre" />
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Cantidad de Dosis</mat-label>
+        <input matInput type="number" formControlName="cantidadDosis" />
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Vacunación Completada</mat-label>
+        <mat-select formControlName="vacunacionCompletada">
+          <mat-option [value]="true">Sí</mat-option>
+          <mat-option [value]="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Administración</mat-label>
+        <input matInput type="date" formControlName="fechaAdministracion" />
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Próxima Dosis</mat-label>
+        <input matInput type="date" formControlName="fechaProximaDosis" />
+      </mat-form-field>
+  
+      <div class="dialog-buttons">
+        <button mat-button color="primary" (click)="guardarVacuna()">Guardar</button>
+        <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,42 @@
+.info-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: auto;
+    max-width: 20vw;
+    height: 80px;
+    margin: 5px;
+}
+
+.info-card-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+
+.info-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card-title {
+    font-size: 12pt;
+    font-weight: 500;
+    margin: 0;
+}
+
+.info-card-value {
+    font-size: 14pt;
+    font-weight: 700;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .info-card {
+        width: 95%;
+    }
+}
+

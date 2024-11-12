@@ -1,0 +1,40 @@
+<div class="dialog-container">
+    <h2>Registrar Cruce</h2>
+    <form [formGroup]="cruceForm">
+      <!-- Selección de Finca -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Finca</mat-label>
+        <mat-select formControlName="idFinca" (selectionChange)="onFincaChange($event.value)">
+          <mat-option *ngFor="let finca of fincas" [value]="finca.idFinca">
+            {{ finca.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Selección de Hembra -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Hembra</mat-label>
+        <mat-select formControlName="idMadre">
+          <mat-option *ngFor="let hembra of hembras" [value]="hembra.idAnimal">
+            {{ hembra.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Selección de Macho -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Macho</mat-label>
+        <mat-select formControlName="idPadre">
+          <mat-option *ngFor="let macho of machos" [value]="macho.idAnimal">
+            {{ macho.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="dialog-buttons">
+        <button mat-button color="primary" (click)="guardarCruce()">Guardar</button>
+        <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

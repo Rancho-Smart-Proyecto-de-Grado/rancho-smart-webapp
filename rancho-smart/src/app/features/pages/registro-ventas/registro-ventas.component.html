@@ -1,12 +1,58 @@
 <div class="dashboard-container">
-    <div class="navbar">
-        <button class="sidebar-toggle" (click)="toggleSidebar()">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </div>
-    <app-navbar-lateral [class.sidebar-hidden]="isSidebarHidden"></app-navbar-lateral>
-    <div class="dashboard-content">
-        <p>registro-ventas works!</p>
-      <!-- Aquí va el contenido dinámico del dashboard -->
-    </div>
+  <div class="navbar">
+    <button class="sidebar-toggle" (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
+  <app-navbar-lateral></app-navbar-lateral>
+
+  <div class="dashboard-content">
+    <app-navbar-superior></app-navbar-superior>
+    <button mat-button class="btn-add-inventory" (click)="abrirModalVenta()">
+      <div class="icon-container">
+        <mat-icon>add</mat-icon>
+      </div>
+      <span class="btn-text">Añadir animal para la venta</span>
+    </button>
+
+    <!-- Tabla para mostrar ventas -->
+    <mat-card>
+      <mat-card-content>
+        <h2 class="title">Ganado a la venta </h2>
+        <div class="table-container">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Nombre del Animal -->
+            <ng-container matColumnDef="nombreAnimal">
+              <th mat-header-cell *matHeaderCellDef> Nombre del Animal </th>
+              <td mat-cell *matCellDef="let venta"> {{ venta.nombreAnimal }} </td>
+            </ng-container>
+
+            <!-- Descripción -->
+            <ng-container matColumnDef="descripcion">
+              <th mat-header-cell *matHeaderCellDef> Descripción </th>
+              <td mat-cell *matCellDef="let venta"> {{ venta.descripcion }} </td>
+            </ng-container>
+
+            <!-- Precio -->
+            <ng-container matColumnDef="precio">
+              <th mat-header-cell *matHeaderCellDef> Precio </th>
+              <td mat-cell *matCellDef="let venta"> {{ venta.precio | currency }} </td>
+            </ng-container>
+
+            <!-- Moneda -->
+            <ng-container matColumnDef="moneda">
+              <th mat-header-cell *matHeaderCellDef> Moneda </th>
+              <td mat-cell *matCellDef="let venta"> {{ venta.moneda }} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No hay ventas para mostrar.</td>
+            </tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
